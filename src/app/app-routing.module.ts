@@ -1,7 +1,26 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { HomeModule } from './home/home.module';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { 
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { 
+        path: '', 
+        redirectTo: 'home', 
+        pathMatch: 'full'
+      },
+      { path: 'home', loadChildren: () => import('src/app/home/home.module').then(m => m.HomeModule) }
+    ]
+  },
+  /* {
+    path: '**', 
+    loadChildren: () => import('./pages/page-not-found/page-not-fount.module').then(m => m.PageNotFountModule),
+  } */
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
