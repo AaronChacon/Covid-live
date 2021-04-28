@@ -1,18 +1,37 @@
 /* Typography
    ========================================================================== */
 
-* {
-    font-family: 'Graphik', "Helvetica Neue", sans-serif;
-    font-style: normal;
-}
+   * {
+      font-family: 'Graphik', "Helvetica Neue", sans-serif;
+      font-style: normal;
+   }
 
 /* Color
    ========================================================================== */
-
    
+   $primary: #262C7C;
+   $secondary: #EB0065;
+   $base: #F2F3F7;
+   //$: #DADBE7;
+
+   $content-primary: #6468A1;
+   $content-secondary: #BEC1E0;
+   $content-title: #2D2E39;
+   $content-content: #9195CB;
+   $content-dark: #3D3F52;
+   
+   $white: #FFFFFF;
+   $orange: #FF3E29;
+
 
 
 /* Size
    ========================================================================== */
 
+   $fz12: 0.75rem;
+   $fz14: 0.875rem;
+   $fz16: 1rem;
+   $fz18: 1.125rem;
+   $fz20: 1.25rem;
+   $fz22: 1.375rem;
 

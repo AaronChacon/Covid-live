@@ -1,0 +1,121 @@
+/* Breakpoints parameters
+   ========================================================================== */
+
+// XX-small smartphones (landscape view)
+$screen-xxs: 295px;
+
+// X-small smartphones (landscape view)
+$screen-xs: 395px;
+
+// Small smartphones (landscape view)
+$screen-sm: 576px;
+
+// Medium tablets (portrait view)
+$screen-md: 767px;
+
+// Large Tablets and small desktops
+$screen-lg: 992px;
+
+// Large Tablets and small desktops
+$screen-ml: 1024px;
+
+// Extra-Large tablets and desktops
+$screen-xl: 1200px;
+
+// Extra Extra-Large tablets and desktops
+$screen-xxl: 1380px; 
+
+// Breakpoints media queries
+// X-small devices 295 (mobile)
+@mixin xx-small {
+  @media (max-width: #{$screen-xxs}){
+    @content;
+  }
+}
+
+// Breakpoints media queries
+// X-small devices 375 (mobile)
+@mixin x-small{
+  @media (max-width: #{$screen-xs}){
+    @content;
+  }
+}
+
+// Breakpoints media queries
+// Small devices 576 (mobile)
+@mixin small{
+  @media (max-width: #{$screen-sm}){
+    @content;
+  }
+}
+
+// Medium devices 767 (landscape tablets)
+@mixin medium{
+  @media (max-width: #{$screen-md}){
+    @content;
+  }
+}
+
+// Medium min devices 767 (landscape tablets)
+@mixin min-medium{
+  @media (min-width: #{$screen-md}){
+    @content;
+  }
+}
+
+// Large devices 992 (large tablet, small desktop)
+@mixin large{
+  @media (max-width: #{$screen-lg}){
+    @content;   
+  }
+}
+
+// Min Large devices 992 (large tablet, small desktop)
+@mixin min-large{
+  @media (min-width: #{$screen-lg}){
+    @content;
+  }
+}
+
+// Medium devices 1024 (desktop, ipad)
+@mixin m-large{
+  @media (max-width: #{$screen-ml}){
+    @content;
+  }
+}
+
+// Medium min devices 1024 (desktop, ipad)
+@mixin min-m-large{
+  @media (min-width: #{$screen-ml}){
+    @content;
+  }
+}
+
+
+// Medium devices 1200 (desktop, large desktop)
+@mixin x-large{
+  @media (max-width: #{$screen-xl}){
+    @content;
+  }
+}
+
+// Min devices 1200 (desktop, large desktop)
+@mixin min-x-large{
+  @media (min-width: #{$screen-xl}){
+    @content;
+  }
+}
+
+  // Medium devices 1300 (desktop, large desktop)
+@mixin xx-large{
+  @media (max-width: #{$screen-xxl}){
+    @content;
+  }
+}
+
+  // Min devices 1300 (desktop, large desktop)
+@mixin min-xx-large{
+  @media (min-width: #{$screen-xxl}){
+    @content;
+  }
+}
