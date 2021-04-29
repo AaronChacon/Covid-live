@@ -1,4 +1,46 @@
 
+/* Own
+   ========================================================================== */
+
+.btn--primary {
+    border-color: $white;
+    font-size: $fz16;
+    background-color: $primary;
+    transition: 0.3s;
+    border-radius: 6px;
+    &:hover,
+    &:active,
+    &:focus,
+    &:not(:disabled):not(.disabled):active{
+        background-color: $primary;
+        border-color: rgba($white, $alpha: .6)
+    }
+
+    &:active{
+        transform: scale(.95);
+    }
+}
+
+.btn--secondary {
+    border-color: transparent;
+    font-size: $fz16;
+    background-color: $secondary;
+    transition: 0.3s;
+    border-radius: 6px;
+    &:hover,
+    &:active,
+    &:focus,
+    &:not(:disabled):not(.disabled):active{
+        background-color: $secondary;
+        border-color: $secondary;
+    }
+
+    &:active{
+        transform: scale(.95);
+    }
+}
+
+
 /* External
    ========================================================================== */
 

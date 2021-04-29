@@ -1,0 +1,56 @@
+.hero{
+    width: 100%;
+    height: calc(100vh - .5rem);
+    background-color: $primary;
+    background-image: url("../../image/hero-bg2.svg");
+    background-position: 100% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $white;
+
+    .hero__container{
+        height: calc(100vh - 5.5rem);
+        @include flexbox-center();
+        justify-content: space-between;
+        @include min-x-large(){
+            width: 80.42%;
+        }
+    }
+
+    .hero__info{
+        width: 38.5%;
+
+        .hero__info-title{
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-top: 1.59rem;
+            margin-bottom: 2.125rem;
+        }
+
+        .hero__info-content{
+            color: #BEC1E0;
+            font-size: $fz16;
+            margin-bottom: 5.25rem;
+        }
+
+        .hero__info-btn{
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+
+            .btn{
+                width: 46%;
+                height: 2.75rem;
+                @include flexbox-center();
+                .icon-right{
+                    margin-left: 0.938rem;
+                }
+            }
+
+            .btn--primary {
+                text-transform: uppercase;
+            }
+        }
+
+    }
+}
