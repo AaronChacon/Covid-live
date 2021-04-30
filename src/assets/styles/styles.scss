@@ -15,13 +15,13 @@
 // 3. Utilities
 @import 'utilities/utilities';
 
-// 4. Layout
-//@import 'layout';
-
-// 5. Components
+// 4. Components
 @import 'components/button';
 @import 'components/nav';
-@import 'components/hero';
+
+// 4. Layout
+@import 'layout/hero';
+@import 'layout/main';
 
 // 6. Overrides
 //@import 'overrides/angular-material';

@@ -1,0 +1,99 @@
+.hero{
+    width: 100%;
+    height: calc(100vh - .5rem);
+    background-color: $primary;
+    background-image: url("../../image/hero-bg2.svg");
+    background-position: 100% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $white;
+
+    .hero__container{
+        height: calc(100vh - 5.5rem);
+        justify-content: space-between;
+        @include flexbox-center();
+
+        @include medium(){
+            flex-direction: column-reverse;
+            justify-content: center;
+        }
+        @include min-x-large(){
+            width: 80.42%;
+        }
+    }
+
+    .hero__info{
+        //width: 38.5%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        @include medium(){
+            padding: 0 0.625rem;
+            text-align: center;
+            width: 100%;
+        }
+        @include min-medium(){
+            padding-right: 0.625rem;
+        }
+        @include min-x-large(){
+            padding-right: 3.125rem;
+        }
+
+        .hero__info-title{
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-top: 1.59rem;
+            margin-bottom: 2.125rem;
+        }
+
+        .hero__info-content{
+            color: #BEC1E0;
+            font-size: $fz16;
+            margin-bottom: 5.25rem;
+        }
+
+        .hero__info-btn{
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+
+            .btn{
+                min-width: 46%;
+                //height: 2.75rem;
+                max-height: 2.75rem;
+                min-height: 2.5rem;
+                font-size: $fz12;
+                @include flexbox-center();
+                .icon-right{
+                    margin-left: 0.938rem;
+                }
+                @include min-large(){
+                    font-size: $fz14;
+                }
+            }
+
+            .btn--primary {
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+    .hero__image{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include medium(){
+            margin: 0 0.625rem;
+        }
+
+        .hero__image-main{
+            width: 95%;
+            @include min-x-large(){
+                width: 85%;
+            }
+        }
+    }
+
+}
