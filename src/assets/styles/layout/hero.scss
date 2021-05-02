@@ -12,7 +12,6 @@
         height: calc(100vh - 5.5rem);
         justify-content: space-between;
         @include flexbox-center();
-
         @include medium(){
             flex-direction: column-reverse;
             justify-content: center;
@@ -36,7 +35,7 @@
             padding-right: 0.625rem;
         }
         @include min-x-large(){
-            padding-right: 3.125rem;
+            padding-right: 7.5rem;
         }
 
         .hero__info-title{
@@ -44,12 +43,20 @@
             font-size: 2rem;
             margin-top: 1.59rem;
             margin-bottom: 2.125rem;
+
+            @include x-small(){
+                font-size: 1.4rem;
+                margin-top: 1rem;
+                margin-bottom: 1.125rem;
+            }
+
         }
 
         .hero__info-content{
             color: #BEC1E0;
             font-size: $fz16;
-            margin-bottom: 5.25rem;
+            //margin-bottom: 5.25rem;
+            margin-bottom: 17.654%;
         }
 
         .hero__info-btn{
@@ -57,22 +64,30 @@
             display: flex;
             justify-content: space-between;
 
+            @include x-small(){
+                width: 100%;  
+            }
+
             .btn{
+                //@include flexbox-center();
                 min-width: 46%;
                 //height: 2.75rem;
                 max-height: 2.75rem;
                 min-height: 2.5rem;
                 font-size: $fz12;
-                @include flexbox-center();
-                .icon-right{
+                .icon__custom{
                     margin-left: 0.938rem;
+                }
+                
+                @include x-small(){
+                    font-size: $fz10;
                 }
                 @include min-large(){
                     font-size: $fz14;
                 }
             }
 
-            .btn--primary {
+            .btn__primary {
                 text-transform: uppercase;
             }
         }
@@ -85,7 +100,7 @@
         justify-content: center;
         align-items: center;
         @include medium(){
-            margin: 0 0.625rem;
+            margin: 0.625rem 0;
         }
 
         .hero__image-main{

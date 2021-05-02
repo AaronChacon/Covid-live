@@ -1,0 +1,11 @@
+.card {
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px 0px rgba(190,193,224,0.32);
+
+    &.card__status{
+        width: 100%;
+        //position: absolute;
+        min-height: 157px;
+        background-color: $white;
+    }
+}

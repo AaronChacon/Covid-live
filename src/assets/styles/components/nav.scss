@@ -4,8 +4,11 @@
     background-color:  $primary;
     color: $white;
     border-bottom: 1px solid $content-secondary;
+    @include min-x-large(){
+        padding: 0;
+    }
 
-    .nav-container{
+    .nav__container{
         @include large(){
             padding: .625rem 0;
         }
@@ -27,7 +30,7 @@
         margin-right: 0.901rem;
     }
 
-    .nav__container{
+    .nav__container-items{
         .nav__item{
             @include flexbox-center();
             @include large(){

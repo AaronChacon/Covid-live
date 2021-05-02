@@ -2,7 +2,8 @@
 /* Own
    ========================================================================== */
 
-.btn--primary {
+.btn__primary {
+    @include flexbox-center();
     border-color: $white;
     font-size: $fz14;
     background-color: $primary;
@@ -21,7 +22,8 @@
     }
 }
 
-.btn--secondary {
+.btn__secondary {
+    @include flexbox-center();
     border-color: transparent;
     font-size: $fz14;
     background-color: $secondary;

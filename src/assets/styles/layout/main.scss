@@ -1,5 +1,53 @@
 .main{
     width: 100%;
-    min-height: 20vh;
+    min-height: 50vh;
     background-color: $base;
+
+    .main__container{
+        @include min-x-large(){
+            width: 80.42%;
+        }
+    }
+
+    .card__status{
+        position: absolute;
+        top: -78.5px;
+        @include flexbox-center();
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .data-status{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        .data-status__info{
+            margin-left: 9px;
+        }
+
+        .status__info-sub{
+            font-size: 14px;
+            color: #6468A1;
+            font-weight: 400;
+            line-height: 22px;
+            margin-top: 0;
+            margin-bottom: 2px;
+        }
+
+        .status__info-title{
+            font-size: 24px;
+            color: #262C7C;
+            font-weight: 500;
+            line-height: 40px;
+            margin-bottom: 0;
+            .icon-custom{
+                font-size: 14px;
+                color: #3D3F52;
+                margin-left: 9px;
+            }
+        }
+
+    }
 }
