@@ -34,7 +34,7 @@ $screen-xxl: 1380px;
 }
 
 // Breakpoints media queries
-// X-small devices 375 (mobile)
+// X-small devices 395 (mobile)
 @mixin x-small{
   @media (max-width: #{$screen-xs}){
     @content;
@@ -116,6 +116,14 @@ $screen-xxl: 1380px;
   // Min devices 1300 (desktop, large desktop)
 @mixin min-xx-large{
   @media (min-width: #{$screen-xxl}){
+    @content;
+  }
+}
+
+// Landscape-lg
+@mixin landscape-large {
+  @media (orientation: landscape) and
+  (max-device-width: #{$screen-lg}) {
     @content;
   }
 }

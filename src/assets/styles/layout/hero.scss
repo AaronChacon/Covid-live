@@ -1,24 +1,28 @@
 .hero{
     width: 100%;
-    height: calc(100vh - .5rem);
+    min-height: calc(100vh - .5rem);
     background-color: $primary;
     background-image: url("../../image/hero-bg2.svg");
     background-position: 100% 30%;
     background-repeat: no-repeat;
     background-size: cover;
     color: $white;
-
     .hero__container{
-        height: calc(100vh - 5.5rem);
+        min-height: calc(100vh - 5.5rem);
         justify-content: space-between;
         @include flexbox-center();
         @include medium(){
             flex-direction: column-reverse;
             justify-content: center;
         }
+        @include landscape-large(){
+            padding-top: 2.188rem;
+            padding-bottom: 5.313rem;
+        }
         @include min-x-large(){
             width: 80.42%;
         }
+        
     }
 
     .hero__info{

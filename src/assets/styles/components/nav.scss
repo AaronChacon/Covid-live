@@ -14,7 +14,6 @@
         }
         @include min-x-large(){
             width: 80.42%;
-            padding: 0;
         }
     }
 
@@ -31,14 +30,17 @@
     }
 
     .nav__container-items{
+        margin-top: 0.625rem;
         .nav__item{
+            text-align: right;
+            margin-right: 0.625rem;
             @include flexbox-center();
             @include large(){
                 display: block;
                 padding: 0;
             }
             .nav__link{
-                padding: 0 2.2rem;
+                padding: 0 1.8rem;
                 color: $content-secondary;
                 font-size: $fz14;
                 line-height: $fz22;
@@ -46,6 +48,10 @@
                 @include large(){
                     display: block;
                     padding: .5rem 0;
+                    font-size: $fz16;
+                }
+                @include min-xx-large(){ 
+                    padding: 0 2.2rem;
                 }
                 &.nav__link--active{
                     color: $secondary;
