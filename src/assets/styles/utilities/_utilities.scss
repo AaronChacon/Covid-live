@@ -3,6 +3,7 @@
 
 .section__status{
     width: 100%;
+    position: relative;
 }
 
 .section__data{
@@ -12,7 +13,8 @@
     flex-wrap: wrap;
     width: 100%;
     padding-top: 2rem;
-    margin-bottom: 4.875rem;
+    //margin-bottom: 4.875rem;
+    margin-bottom: 0.313rem;
     @include m-large{
         flex-direction: column-reverse;
     }

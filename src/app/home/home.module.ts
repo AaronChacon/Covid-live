@@ -8,13 +8,14 @@ import { MainComponent } from './components/main/main.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeroComponent,
-    MainComponent
+    MainComponent,
+    InfoComponent
   ],
   imports: [
     CommonModule,

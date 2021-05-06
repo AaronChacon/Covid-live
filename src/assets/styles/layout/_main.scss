@@ -1,13 +1,14 @@
 .main{
     width: 100%;
-    min-height: 200vh;
+    //min-height: 118vh;
+    //position: relative;
     background-color: $base;
     @include flexbox-center();
-    position: relative;
-
+    
     .main__container{
         top: -4.906rem;
-        position: absolute;
+        position: relative;
+        //position: absolute;
         @include min-x-large(){
             width: 80.42%;
         }
@@ -53,12 +54,12 @@
                 
                 .status__info-sub{
                     font-size: 0.75rem;
-                    color: #6468A1;
+                    color: $content-primary;
                     font-weight: 400;
                     line-height: 1.375rem;
                     margin-top: 0;
                     margin-bottom: 0.125rem;
-                    width: 150px;
+                    width: 9.375rem;
                     @extend %truncate;
                     @include small(){
                         text-align: center;
@@ -67,7 +68,7 @@
         
                 .status__info-title{
                     font-size: 1.5rem;
-                    color: #262C7C;
+                    color: $primary;
                     font-weight: 500;
                     line-height: 2.5rem;
                     margin-bottom: 0;
@@ -78,7 +79,7 @@
                     }
                     .icon-custom{
                         font-size: $fz14;
-                        color: #3D3F52;
+                        color: $content-dark;
                         margin-left: 0.563rem;
                     }
                 }
@@ -113,7 +114,7 @@
                     line-height: 2rem;
                     margin: 0;
                     @include medium{
-                        margin-bottom: 5px;
+                        margin-bottom: 0.313rem;
                     }
                 }
 
@@ -123,14 +124,20 @@
                     @include flexbox-center();
                     justify-content: space-between;
                     text-align: right;
+                    @include x-small{
+                        flex-direction: column;
+                    }
                     .subtitle{
                         font-size: $fz16;
                         line-height: 1.5rem;
                         color: $content-primary;
                         margin: 0;
-                        margin-right: 15px;
+                        margin-right: 0.938rem;
+                        @include x-small{
+                            margin-right: 0;
+                        }
                         &:last-child{
-                            margin-right: 0px;
+                            margin-right: 0;
                         }
                         .image{
                             padding-left: 0.5rem;
@@ -156,39 +163,38 @@
             @include m-large{
                 width: 100%;
                 //height: 250px;
-                height: 305px;
-                margin-bottom: 20px;
+                height: 19.063rem;
+                margin-bottom: 1.25rem;
             }
 
             .hr{
                 width: 100%;
-                margin-top: 17.5px;
-                margin-bottom: 17.5px;
+                margin-top: 1.094rem;
+                margin-bottom: 1.094rem;
             }
 
             .select__input{
-                margin-top: 10px;
+                margin-top: 0.625rem;
             }
             
             .select__country-show{
-                margin-top: 16px;
+                margin-top: 1rem;
 
                 .select__item-country{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    height: 44px;
+                    height: 2.75rem;
                     border: 1px solid #262C7C;
-                    border-radius: 5px;
+                    border-radius: 0.313rem;
                     background-color: #ffffff;
-                    padding: 0 14px;
+                    padding: 0 0.875rem;
     
                     .title{
                         color: #262C7C;
                         font-size: $fz14;
-                        line-height: 22px;
+                        line-height: 1.375rem;
                         font-weight: 500;
-                        font-style: Medium;
                         text-align: left;
                         width: 50%;
                         @extend %truncate
@@ -197,9 +203,8 @@
                     .subtitle{
                         color: #262C7C;
                         font-size: $fz14;
-                        line-height: 22px;
+                        line-height: 1.375rem;
                         font-weight: 400;
-                        font-style: normal;
                         text-align: right;
                         width: 50%;
                         @extend %truncate
@@ -208,19 +213,20 @@
             }
 
             .select__country-select{
-                height: 470px;
+                height: 29.375rem;
+                padding-right: 0.125rem;
                 overflow: auto;
                 
                 .select__item-select{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    height: 44px;
+                    height: 2.75rem;
                     border: 1px solid transparent;
-                    border-radius: 5px;
+                    border-radius: 0.313rem;
                     background-color: #F2F3F7;
-                    padding: 0 14px;
-                    margin-bottom: 14px;
+                    padding: 0 0.875rem;
+                    margin-bottom: 0.875rem;
                     &:hover{
                         border-color: #000000;
                     }
@@ -231,17 +237,16 @@
                         align-items: center;
                         overflow: hidden;
                         .img-country{
-                           width: 24px; 
-                           height: 24px;
+                           width: 1.5rem; 
+                           height: 1.5rem;
                            border-radius: 50%;
-                           margin-right: 14px; 
+                           margin-right: 0.875rem; 
                         }
                         .title{
                             color: #2D2E39;
                             font-size: $fz14;
-                            line-height: 22px;
+                            line-height: 1.375rem;
                             font-weight: 500;
-                            font-style: Medium;
                             text-align: left;
                             width: 50%;
                             @extend %truncate
@@ -251,9 +256,8 @@
                     .subtitle{
                         color: #6468A1;
                         font-size: $fz14;
-                        line-height: 22px;
+                        line-height: 1.375rem;
                         font-weight: 400;
-                        font-style: normal;
                         text-align: right;
                         width: 40%;
                         @extend %truncate

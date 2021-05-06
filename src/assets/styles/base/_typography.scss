@@ -217,3 +217,18 @@
     font-style: italic;
 }
 
+
+/* 
+   ========================================================================== */
+
+
+.typo__title{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 3rem;
+    letter-spacing: 0.013rem;
+    color: $primary;
+    /* @include x-small(){
+        font-size: 1.rem;
+    } */
+}
