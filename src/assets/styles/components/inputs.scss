@@ -1,0 +1,53 @@
+.input__group {
+    display: flex;
+    position: relative;
+    /* .input__location{
+
+    } */
+    .form-control{
+        height: 2.75rem;
+        font-size: $fz14;
+        border-radius: 0.313rem;
+        color: $content-content;
+        border-color: $gray-primary;
+        &:focus{
+            box-shadow: 0 0 0 0.2rem rgb($content-content, 25%);
+        }
+        &::placeholder{
+            color: $content-content;
+            font-size: $fz14;
+        }
+    }
+
+    %btn__icon{
+        width: 1.75rem;
+        height: 1.75rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0.75rem;
+        bottom: 50%;
+        transform: translate(0, 50%);
+        background-color: $base;
+
+        .mat-icon{
+            height: $fz16;
+            width: $fz16;
+            font-size: $fz16;
+            line-height: $fz16;
+            color: $gray-dark;
+        }
+    }
+
+    .btn__icon-close{
+        @extend %btn__icon;
+        right: 2.75rem;
+    }
+    .btn__icon-location{
+        @extend %btn__icon;
+        right: 0.75rem;
+    }
+
+
+}

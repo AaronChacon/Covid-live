@@ -66,23 +66,147 @@
                     <div class="data__sub">
                         <p class="subtitle">
                             Most affected
-                            <img class="image" src="../../../../assets/image/bgt-a.svg" alt="img-bgta">
+                            <img 
+                                class="image" 
+                                src="../../../../assets/image/bgt-a.svg" alt="img-bgta">
                         </p>
                         <p class="subtitle">
                             Lass Affected
-                            <img class="image" src="../../../../assets/image/bgt-b.svg" alt="img-bgta">
+                            <img 
+                                class="image" 
+                                src="../../../../assets/image/bgt-b.svg" alt="img-bgta">
                         </p>
                     </div>
 
                 </div>
                 <div class="data__content">
-
                 </div>
-
             </div>
             
             <div class="card card__data card__data--select">
-                sdasd
+                
+                <div class="select__input">
+                    <div class="input__group input__location">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Filter to a location"
+                            [(ngModel)]="country"
+                            >
+                        <button 
+                            class="btn__icon-close"
+                            mat-button *ngIf="country" 
+                            matSuffix mat-icon-button 
+                            aria-label="Clear" (click)="country=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <button 
+                            class="btn__icon-location"
+                            mat-button
+                            matSuffix mat-icon-button 
+                            aria-label="Location" (click)="country='Spain'">
+                            <mat-icon>near_me</mat-icon>
+                        </button>
+                    </div>
+                      
+
+                </div>
+
+                <div class="select__country-show">
+                    <div class="select__item-country">
+                        <span class="title">Global</span>
+                        <span class="subtitle">1,245,347</span>
+                    </div>
+                </div>
+
+                <hr class="hr">
+                
+                <div class="select__country-select">
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+                    
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    <div class="select__item-select">
+                        <div class="content-country">
+                            <img class="img-country" 
+                            src="../../../../assets/image/venezuela-flag.png" 
+                            alt="Venezuela">
+                            <span class="title">Venezuela</span>
+                        </div>
+                        <span class="subtitle">145,347</span>
+                    </div>
+
+                    
+
+                </div>
+
             </div>
 
         </section>
