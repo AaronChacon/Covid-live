@@ -9,13 +9,15 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoComponent } from './components/info/info.component';
+import { FAQComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeroComponent,
     MainComponent,
-    InfoComponent
+    InfoComponent,
+    FAQComponent
   ],
   imports: [
     CommonModule,

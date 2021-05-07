@@ -1,0 +1,25 @@
+.fqa{
+    background-color: $white;
+    .fqa__container{
+        width: 100%;
+        @include min-x-large(){
+            width: 80.42%;
+        }
+    }
+
+    .faq__info{
+        .typo__title{
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 65px;
+            margin-bottom: 76px;
+        }
+
+        .faq__content{
+           margin-bottom: 91px; 
+        }
+    }
+
+
+
+}
