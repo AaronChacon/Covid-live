@@ -52,4 +52,65 @@
         }
     }
 
+    &.card__accordion{
+        box-shadow: none;
+        //border: 1px solid $gray-medium;;
+        border-bottom: 1px solid $gray-medium;
+        border-radius: 0px;
+        
+        .card-header{
+            background-color: $white;
+            padding: .75rem 0;
+            border-color: $gray-medium;
+            padding: 0;
+            .btn__title {
+                @include flexbox-center();
+                justify-content: space-between;
+                color: $primary;
+                padding-top: 8.5px;
+                padding-left: 0;
+                padding-right: 0;
+                padding-bottom: 8.5px;
+                font-weight: 500;
+                font-size: $fz16;
+                line-height: 24px;
+                text-decoration: initial;
+                &[aria-expanded="true"]{
+                    .icon__dash{
+                        display: block;
+                    }
+                    .icon__plus{
+                        display: none;
+                    }
+                }
+                
+                &[aria-expanded="false"]{
+                    .icon__dash{
+                        display: none;
+                    }
+                    .icon__plus{
+                        display: block;
+                    }
+                }
+                &:focus{
+                    box-shadow: none
+                }
+                &.top{
+                    padding-top: 0;
+                }
+            }
+        }
+
+        .card__content{
+            padding-left: 0;
+            padding-right: 0;
+            color: $content-primary;
+            font-size: $fz16;
+            line-height: 24px;
+            font-weight: 400;
+        }
+
+
+    }
+
 }

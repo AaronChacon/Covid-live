@@ -1,4 +1,4 @@
-.nav{
+.navbar__custom{
     width: 100%;
     min-height: 5.5rem;
     background-color:  $primary;
@@ -62,3 +62,54 @@
 
 
 }
+
+
+/* Vertical navs
+   ========================================================================== */
+
+.navs__vertical{
+    @include flexbox-center();
+    justify-content: space-between;
+    background-color: $white;
+    color: $content-primary;
+    border: 2px solid $elements;
+    //box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.25);
+    //border-radius: 4px;
+    height: 44px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    transition: 300ms;
+    @extend %truncate;
+    &:hover{
+        color: $content-primary;
+        border: 2px solid $primary;
+    }
+
+    &.active{
+        background-color: $white;
+        color: $primary;
+        border: 2px solid $primary;
+        box-shadow: 0px 2px 4px 0px rgba($primary,0.25);
+    }
+
+    .icon__caret-r{
+        height: 100%;
+        @include flexbox-center();
+        font-size: 12px;
+    }
+}
+
+
+.nav-pills {
+    .nav-link{
+        &.active{
+            background-color: $white;
+            color: $primary;
+            border: 2px solid $primary;
+            box-shadow: 0px 2px 4px 0px rgba($primary,0.25);
+        }
+    }
+
+} 

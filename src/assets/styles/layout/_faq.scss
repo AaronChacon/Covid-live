@@ -18,8 +18,77 @@
         .faq__content{
            margin-bottom: 91px; 
         }
+
+        .faq__accordion{
+            width: 100%;
+            display: flex;
+            @include large(){
+                flex-direction: column;
+            }
+            .accordion__selection{
+                width: 30%;
+                padding: 0 16.5px;
+                transition: 500ms;
+                @include large(){
+                    width: 100%;
+                    padding-bottom: 15px;
+                }
+
+                .nav-pills{
+                    flex-direction: column;
+                    @include medium(){
+                        height: 54px;
+
+                        .navs__vertical{
+                            width: 100%;
+                            &[aria-selected="false"]{
+                                display: none;
+                                transition: 500ms;
+                            }
+                        }
+
+                        &:hover{
+                            height: auto;
+                            .navs__vertical{
+                                &[aria-selected="false"]{
+                                    display: flex;
+                                }
+                            }
+                        }
+                        
+                    }
+                    @include large(){
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        .navs__vertical{
+                            min-width: 215px;
+                            .icon__caret-r{
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .accordion__content{
+                width: 70%;
+                padding: 0 16.5px;
+                @include large(){
+                    width: 100%;
+                    min-height: 275px;
+                    padding-bottom: 15px;
+
+                }
+            }
+        }
+
+        .accordion {
+            > .card {
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid $gray-medium;
+                }
+            }
+        }
     }
-
-
-
 }
