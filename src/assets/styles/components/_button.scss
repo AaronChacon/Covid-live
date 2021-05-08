@@ -14,7 +14,8 @@
     &:focus,
     &:not(:disabled):not(.disabled):active{
         background-color: $primary;
-        border-color: rgba($white, $alpha: .6)
+        border-color: rgba($white, $alpha: .6);
+        box-shadow: 0 0 0 0.2rem rgb($white, .5);
     }
 
     &:active{
@@ -35,10 +36,16 @@
     &:not(:disabled):not(.disabled):active{
         background-color: $secondary;
         border-color: $secondary;
+        box-shadow: 0 0 0 0.2rem rgb($secondary, .5);
     }
-
     &:active{
         transform: scale(.95);
+    }
+
+    .icon__custom{
+        height: 100%;
+        display: flex;
+        align-items: center;
     }
 }
 

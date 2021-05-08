@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoComponent } from './components/info/info.component';
 import { FAQComponent } from './components/faq/faq.component';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FAQComponent } from './components/faq/faq.component';
     HeroComponent,
     MainComponent,
     InfoComponent,
-    FAQComponent
+    FAQComponent,
+    NewsComponent
   ],
   imports: [
     CommonModule,
