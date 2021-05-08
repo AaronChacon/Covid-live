@@ -11,12 +11,12 @@
         .typo__title{
             text-align: center;
             text-transform: uppercase;
-            margin-top: 65px;
-            margin-bottom: 76px;
+            margin-top: 4.063rem;
+            margin-bottom: 4.75rem;
         }
 
         .faq__content{
-           margin-bottom: 91px; 
+           margin-bottom: 5.688rem; 
         }
 
         .faq__accordion{
@@ -27,17 +27,17 @@
             }
             .accordion__selection{
                 width: 30%;
-                padding: 0 16.5px;
+                padding: 0 1.031rem;
                 transition: 500ms;
                 @include large(){
                     width: 100%;
-                    padding-bottom: 15px;
+                    padding-bottom: 0.938rem;
                 }
 
                 .nav-pills{
                     flex-direction: column;
                     @include medium(){
-                        height: 54px;
+                        height: 3.375rem;
 
                         .navs__vertical{
                             width: 100%;
@@ -62,7 +62,7 @@
                         justify-content: space-around;
                         align-items: center;
                         .navs__vertical{
-                            min-width: 215px;
+                            min-width: 13.438rem;
                             .icon__caret-r{
                                 transform: rotate(90deg);
                             }
@@ -73,11 +73,11 @@
 
             .accordion__content{
                 width: 70%;
-                padding: 0 16.5px;
+                padding: 0 1.031rem;
                 @include large(){
                     width: 100%;
-                    min-height: 275px;
-                    padding-bottom: 15px;
+                    min-height: 17.188rem;
+                    padding-bottom: 0.938rem;
 
                 }
             }

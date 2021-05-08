@@ -1,0 +1,98 @@
+.footer{
+    //height: 30vh;
+    background-color: $primary;
+    padding-top: 98px;
+    .footer__container{
+        width: 100%;
+        @include min-x-large(){
+            width: 80.42%;
+        }
+    }
+
+    .footer__content{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-bottom: 48px;
+    }
+
+    .footer__column{
+        width: 20%;
+        color: $white;
+        padding-bottom: 30px;
+        @include small(){
+            width: 80% !important;
+            text-align: center;
+        }
+        @include medium(){
+            width: 40%;
+        }
+
+        .img__container{
+            display: flex;
+            align-items: center;
+            @include small(){
+                justify-content: center;
+            }
+            .logo-image{
+                margin-right: 14.42px;
+            }
+            
+        }
+
+        .parag{
+            margin-top: 30px;
+
+        }
+
+        .title{
+            color: $gray-medium;
+            font-size: $fz16;
+            line-height: 24px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .list__container{
+            list-style: none;
+            padding-left: 0;
+            .list__item{
+                color: $content-secondary;
+                font-size: 14px;
+                line-height: 22px;
+                font-weight: 400;
+                margin-bottom: 8px; 
+                &.list__item--active{
+                    color: $secondary;
+                }
+            }
+        }
+
+        .rrss{
+            :nth-last-child(2){
+                margin: 0 14px;
+            }
+        }
+
+        
+    }
+
+    .footer__sign{
+        border-top: 1px solid #FFFBEB;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .title{
+            color: $white;
+            font-size: $fz14;
+            line-height: 22px;
+            font-weight: 400;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+}

@@ -8,17 +8,17 @@
     }
 
     .news__primary{
-        padding: 78px 0;
+        padding: 4.875rem 0;
         .typo__title{
             text-align: center;
-            margin-bottom: 78px;
+            margin-bottom: 4.875rem;
         }
 
         .cards__content{
             @include flexbox-center();
             justify-content: space-between;
             flex-wrap: wrap;
-            margin-bottom: 54px;
+            margin-bottom: 3.375rem;
             @include xx-large{
                 justify-content: space-around;
             }
@@ -29,13 +29,13 @@
             margin: 0 auto;
 
             .btn__secondary{
-                height: 44px;
+                height: 2.75rem;
                 font-size: $fz16;
-                line-height: 24px;
+                line-height: 1.5rem;
                 width: 500;
                 color: $white;
                 .icon__custom{
-                    margin-left: 14px;
+                    margin-left: 0.875rem;
                     font-size: $fz14;
                 }
             }

@@ -44,31 +44,33 @@
             }
 
             .card__info{
-                width: 270px; 
-                height: 414px;
+                width: 16.875rem; 
+                height: 25.875rem;
                 padding: 0;
                 background-color: transparent;
                 box-shadow: none;
                 align-items: flex-start;
-
+                @include small(){
+                    width: 85%;
+                }
                 .card__img{
-                    width: 132px;
-                    height: 132px;
-                    margin-bottom: 27px;
+                    width: 8.25rem;
+                    height: 8.25rem;
+                    margin-bottom: 1.688rem;
                 }
 
                 .card__title{
                     text-align: left;
                     white-space: initial;
                     text-overflow: inherit;
-                    height: 68px;
-                    line-height: 36px;
-                    margin-bottom: 24px;
+                    height: 4.25rem;
+                    line-height: 2.25rem;
+                    margin-bottom: 1.5rem;
                 }
 
                 .card__parag{
                     text-align: left;
-                    height: 163px;
+                    height: 10.188rem;
                 }
             }
         }

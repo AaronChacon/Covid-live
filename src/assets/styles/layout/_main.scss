@@ -157,12 +157,12 @@
         
         &.card__data--select{
             width: 31.51%;
-            height: 670px;
+            height: 41.875rem;
             padding: 1.5rem;
 
             @include m-large{
                 width: 100%;
-                //height: 250px;
+                //height: 15.625rem;
                 height: 19.063rem;
                 margin-bottom: 1.25rem;
             }
