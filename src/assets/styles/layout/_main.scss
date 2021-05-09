@@ -149,9 +149,10 @@
             .data__content{
                 width: 100%;
                 min-height: 34.563rem;
-                background-color: rgba($color: $content-dark, $alpha: .15);
+                //background-color: rgba($color: $content-dark, $alpha: .15);
                 margin-top: 1.563rem;
                 border-radius: 0.313rem;
+                border: 1px solid $gray-primary; 
             }
         }
         

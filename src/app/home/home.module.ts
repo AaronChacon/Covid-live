@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoComponent } from './components/info/info.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { NewsComponent } from './components/news/news.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NewsComponent } from './components/news/news.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     HomeRoutingModule,
     MaterialModule,
     RouterModule,

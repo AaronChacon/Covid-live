@@ -4,6 +4,7 @@ import { MaterialModule } from '../material/material.module';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { MapBubblesComponent } from './map-bubbles/map-bubbles.component';
 
 
 
@@ -11,7 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    MapBubblesComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   exports: [
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    MapBubblesComponent
   ]
 })
 export class SharedModule { }
