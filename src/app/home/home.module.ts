@@ -12,6 +12,7 @@ import { InfoComponent } from './components/info/info.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { NewsComponent } from './components/news/news.component';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     HomeRoutingModule,
     MaterialModule,
     RouterModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class HomeModule { }

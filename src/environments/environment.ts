@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_COVID: 'https://pomber.github.io/covid19/timeseries.json',
+  API_COUNTRIES: 'https://restcountries.eu/rest/v2/all',
 };
 
 /*
