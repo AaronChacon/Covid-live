@@ -1,17 +1,21 @@
 .input__group {
     display: flex;
     position: relative;
-    /* .input__location{
-
-    } */
+    border: 1px solid;
+    border-radius: 0.313rem;
+    border-color: $gray-primary;
+    .input__location{
+        box-shadow: none 
+    }
     .form-control{
         height: 2.75rem;
         font-size: $fz14;
         border-radius: 0.313rem;
         color: $content-content;
-        border-color: $gray-primary;
+        border-color: transparent;
+        width: 80%;
         &:focus{
-            box-shadow: 0 0 0 0.2rem rgb($content-content, 25%);
+            box-shadow: 0 0 0 0.2rem rgb(255, 255, 255, 0%);
         }
         &::placeholder{
             color: $content-content;

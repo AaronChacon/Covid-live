@@ -5,7 +5,7 @@ import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { MapBubblesComponent } from './map-bubbles/map-bubbles.component';
-
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -13,7 +13,8 @@ import { MapBubblesComponent } from './map-bubbles/map-bubbles.component';
   declarations: [
     NavComponent,
     FooterComponent,
-    MapBubblesComponent
+    MapBubblesComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import { MapBubblesComponent } from './map-bubbles/map-bubbles.component';
   exports: [
     NavComponent,
     FooterComponent,
-    MapBubblesComponent
+    MapBubblesComponent,
+    FilterPipe
   ]
 })
 export class SharedModule { }

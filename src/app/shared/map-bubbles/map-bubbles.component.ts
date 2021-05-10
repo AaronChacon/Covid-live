@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, NgZone, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, NgZone, PLATFORM_ID, Input } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 // amCharts imports
@@ -14,6 +14,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 })
 export class MapBubblesComponent implements OnInit {
 
+  @Input() mapValue:any;
   private chart: am4maps.MapChart;
   
 
@@ -214,6 +215,8 @@ export class MapBubblesComponent implements OnInit {
         { "id":"ZW", "name":"Zimbabwe", "value":12754378, "color":"#FF3E29" }
       ];
 
+      mapData = this.mapValue; 
+
       // Set map definition
       chart.geodata = am4geodata_worldLow;
 
@@ -244,8 +247,8 @@ export class MapBubblesComponent implements OnInit {
       imageSeries.heatRules.push({
         "target": circle,
         "property": "radius",
-        "min": 4,
-        "max": 30,
+        "min": 5,
+        "max": 40,
         "dataField": "value"
       })
 

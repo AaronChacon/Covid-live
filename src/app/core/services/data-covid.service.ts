@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
 })
 export class DataCovidService {
 
-  covURL = environment.API_COVID;
+  covidURL = environment.API_COVID;
 
   constructor(private httpClient: HttpClient) { }
 
   getAllData(): Observable<any> {
-    return this.httpClient.get<any>(this.covURL);
+    return this.httpClient.get<any>(`${this.covidURL}/summary`);
   }
 
 }

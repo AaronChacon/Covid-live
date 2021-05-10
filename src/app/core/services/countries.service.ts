@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class CountriesService {
 
-  countURL = environment.API_COUNTRIES;
+  countriesURL = environment.API_COUNTRIES;
 
   constructor(private httpClient: HttpClient) { }
 
   getAllCountries(): Observable<any>{
-    return this.httpClient.get<any>(this.countURL)
+    return this.httpClient.get<any>(this.countriesURL)
   }
 
   

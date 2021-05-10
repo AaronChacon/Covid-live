@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { DataCovidService } from '../../../core/services/data-covid.service';
 import { CountriesService } from '../../../core/services/countries.service';
 
@@ -9,15 +9,22 @@ import { CountriesService } from '../../../core/services/countries.service';
 })
 export class MainComponent implements OnInit {
 
-  country: string = 'Venezuela';
+  country: string;
   countries: any;
   countriesData: any;
   countriesKey: any;
   dataCovid:any;
 
-  totalConfirm = 0;
+  totalConfirmed = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  currentDate:any;
+
+  trendingConfirmed:any;
+  trendingRecovered:any;
+  trendingDeaths:any;
+
+  @Output() mapDataCountries:any;
 
 
   constructor(
@@ -33,34 +40,52 @@ export class MainComponent implements OnInit {
   fetchCovidData(){
     this.dataCovidService.getAllData()
         .subscribe(data => {
-          console.log(data)
           
+          //All data
           this.dataCovid = data;
+          console.log(this.dataCovid)
 
-          for (const key in this.dataCovid) {
-            if (Object.prototype.hasOwnProperty.call(this.dataCovid, key)) {
-              const countries = this.dataCovid[key];
-
-              //let totalconfirmed = 0
-              countries.forEach((data) => {
-                //console.log(data);
-                this.totalConfirm += data.confirmed
-                this.totalRecovered += data.recovered
-                this.totalDeaths += data.deaths
-              });
-
-              /* console.log(this.totalConfirm);
-              console.log(this.totalConfirm);
-              console.log(this.totalConfirm); */
-              
-              
-            }
-          }
-
-          console.log(this.totalConfirm);
-          console.log(this.totalRecovered);
-          console.log(this.totalDeaths);
+          //Totals data
+          this.totalConfirmed = this.dataCovid.Global.TotalConfirmed;
+          this.totalRecovered = this.dataCovid.Global.TotalRecovered;
+          this.totalDeaths = this.dataCovid.Global.TotalDeaths;
           
+          //Date
+          this.currentDate = this.dataCovid.Date;
+
+          //New data
+          let newConfirmed = this.dataCovid.Global.NewConfirmed;
+          let newRecovered = this.dataCovid.Global.NewRecovered;
+          let newDeaths = this.dataCovid.Global.NewDeaths;
+
+          //Trending
+          this.trendingConfirmed = (newConfirmed * 100) / this.totalConfirmed;
+          this.trendingRecovered = (newRecovered * 100) / this.totalRecovered;
+          this.trendingDeaths = (newDeaths * 100) / this.totalDeaths;
+
+          
+          //Countries
+          this.countries = this.dataCovid.Countries
+          console.log(this.countries)
+
+          //MapCountries
+          this.mapDataCountries = this.countries.map(country => {
+            let value = {
+              id: country.CountryCode,
+              name: country.Country,
+              value: country.TotalConfirmed,
+              color: "#FF3E29"
+            }
+            return value
+      
+          });
+
+          console.log(this.mapDataCountries);
+          
+
+          /* let mapData = [
+            { "id":"AF", "name":"Afghanistan", "value":32358260, "color": "#FF3E29" },
+          ] */
 
         })
   }
@@ -70,14 +95,14 @@ export class MainComponent implements OnInit {
         .subscribe(data => {
           console.log(data);
         }) */
-    
-    /* this.dataCovidService.getAllData()
-        .subscribe( data => {
-        this.countriesKey = Object.keys(data);
-        console.log(this.countriesKey);
-        console.log(typeof(this.countriesKey));
-      })   */
 
+  }
+
+  filterByCountry(){
+    this.countries.filter( value => {
+      
+    })
+    //country
   }
 
 }
