@@ -102,7 +102,7 @@
                                 src="../../../../assets/image/bgt-a.svg" alt="img-bgta">
                         </p>
                         <p class="subtitle">
-                            Lass Affected
+                            Less Affected
                             <img 
                                 class="image" 
                                 src="../../../../assets/image/bgt-b.svg" alt="img-bgta">
@@ -163,22 +163,30 @@
                 
                 <div class="select__country-select">
                     
-                    <div 
-                        class="select__item-select" 
-                        *ngFor="let country of countries"
-                        >
-                        <div class="content-country">
-                            <img class="img-country" 
-                            src="https://www.countryflags.io/{{country.CountryCode}}/flat/64.png" 
-                            [alt]="country.Country">
-                            <span class="title">
-                                {{country.Country}} 
-                            </span>
-                        </div>
-                        <span class="subtitle">
-                            {{country.TotalConfirmed | number}}
-                        </span>
-                    </div>
+                    <ng-container *ngFor="let country of countries" >
+                        <a class="link" [routerLink]="['/country', country.Slug]">
+                            
+                            <div 
+                                class="select__item-select" 
+                                
+                                >
+                                <div class="content-country">
+                                    <img class="img-country" 
+                                    src="https://www.countryflags.io/{{country.CountryCode}}/flat/64.png" 
+                                    [alt]="country.Country">
+                                    <span class="title">
+                                        {{country.Country}} 
+                                    </span>
+                                </div>
+                                <span class="subtitle">
+                                    {{country.TotalConfirmed | number}}
+                                </span>
+                            </div>
+
+                        </a>
+
+                    </ng-container>
+                    
                 </div>
 
             </div>

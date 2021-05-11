@@ -249,9 +249,13 @@
             }
 
             .select__country-select{
-                height: 29.375rem;
+                height: 28.125rem;
                 padding-right: 0.125rem;
                 overflow: auto;
+
+                .link{
+                    text-decoration: none;
+                }
                 
                 .select__item-select{
                     display: flex;

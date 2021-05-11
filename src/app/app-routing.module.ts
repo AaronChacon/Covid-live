@@ -12,7 +12,8 @@ const routes: Routes = [
         redirectTo: 'home', 
         pathMatch: 'full'
       },
-      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
+      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+      { path: 'country', loadChildren: () => import('./country/country.module').then(m => m.CountryModule) }
     ]
   },
   {

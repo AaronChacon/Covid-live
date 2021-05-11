@@ -34,7 +34,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchCovidData();
-    this.fetchCountries();
   }
 
   fetchCovidData(){
@@ -70,32 +69,22 @@ export class MainComponent implements OnInit {
 
           //MapCountries
           this.mapDataCountries = this.countries.map(country => {
+
+            let color = country.TotalConfirmed > 250000 ? "#FF3E29" : "#00DB75";
+
             let value = {
               id: country.CountryCode,
               name: country.Country,
               value: country.TotalConfirmed,
-              color: "#FF3E29"
+              color: color
             }
             return value
       
           });
 
           console.log(this.mapDataCountries);
-          
-
-          /* let mapData = [
-            { "id":"AF", "name":"Afghanistan", "value":32358260, "color": "#FF3E29" },
-          ] */
 
         })
-  }
-
-  fetchCountries(){
-    /* this.countriesService.getAllCountries()
-        .subscribe(data => {
-          console.log(data);
-        }) */
-
   }
 
   filterByCountry(){
