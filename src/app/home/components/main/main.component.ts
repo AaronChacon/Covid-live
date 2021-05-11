@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { DataCovidService } from '../../../core/services/data-covid.service';
-import { CountriesService } from '../../../core/services/countries.service';
+import { IpLocationService } from '../../../core/services/ip-location.service';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +9,9 @@ import { CountriesService } from '../../../core/services/countries.service';
 })
 export class MainComponent implements OnInit {
 
-  country: string;
+  //country: string;
+  query: string;
+  
   countries: any;
   countriesData: any;
   countriesKey: any;
@@ -25,15 +27,19 @@ export class MainComponent implements OnInit {
   trendingDeaths:any;
 
   @Output() mapDataCountries:any;
+  location: string;
+
+  loadingItems = [true,true,true,true,true,true,true,true]
 
 
   constructor(
     private dataCovidService: DataCovidService,
-    private countriesService: CountriesService
+    private ipLocationService: IpLocationService,
   ) { }
 
   ngOnInit(): void {
     this.fetchCovidData();
+    this.fetchIpLocation();
   }
 
   fetchCovidData(){
@@ -42,7 +48,7 @@ export class MainComponent implements OnInit {
           
           //All data
           this.dataCovid = data;
-          console.log(this.dataCovid)
+          //console.log(this.dataCovid)
 
           //Totals data
           this.totalConfirmed = this.dataCovid.Global.TotalConfirmed;
@@ -65,12 +71,12 @@ export class MainComponent implements OnInit {
           
           //Countries
           this.countries = this.dataCovid.Countries
-          console.log(this.countries)
+          //console.log(this.countries)
 
           //MapCountries
           this.mapDataCountries = this.countries.map(country => {
 
-            let color = country.TotalConfirmed > 250000 ? "#FF3E29" : "#00DB75";
+            let color = country.TotalConfirmed > 25000 ? "#FF3E29" : "#00DB75";
 
             let value = {
               id: country.CountryCode,
@@ -82,16 +88,21 @@ export class MainComponent implements OnInit {
       
           });
 
-          console.log(this.mapDataCountries);
+          //console.log(this.mapDataCountries);
 
         })
   }
 
-  filterByCountry(){
-    this.countries.filter( value => {
-      
-    })
-    //country
+  fetchIpLocation(){
+    this.ipLocationService.getIpLocation()
+        .subscribe((data:any) =>{
+          //console.log(data);
+          this.location = data.country_name;
+        })
   }
+
+  
+
+  
 
 }

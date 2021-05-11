@@ -14,6 +14,7 @@
 
 // 3. Utilities
 @import 'utilities/utilities';
+@import 'utilities/animate';
 
 // 4. Components
 @import 'components/inputs.scss';
@@ -29,6 +30,7 @@
 @import 'layout/faq';
 @import 'layout/news';
 @import 'layout/footer';
+
 
 // 6. Overrides
 //@import 'overrides/angular-material';

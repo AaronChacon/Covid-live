@@ -16,4 +16,8 @@ export class DataCovidService {
     return this.httpClient.get<any>(`${this.covidURL}/summary`);
   }
 
+  getCountryData():Observable<any>{
+    return this.httpClient.get<any>('https://api.covid19api.com/country/albania/status/confirmed?from=2020-01-01T00:00:00Z&to=2021-05-12T00:00:00Z')
+  }
+
 }

@@ -6,14 +6,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CountriesService {
+export class IpLocationService {
 
-  countriesURL = environment.API_COUNTRIES;
+  ipUrl = environment.API_IP_CHECK; 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+  ) { }
 
-  getAllCountries(): Observable<any>{
-    return this.httpClient.get<any>(this.countriesURL);
+  getIpLocation(): Observable<any>{
+    return this.httpClient.get<any>(this.ipUrl);
   }
-  
 }

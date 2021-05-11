@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataCovidService } from '../core/services/data-covid.service';
 
 @Component({
   selector: 'app-country',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataCovidService: DataCovidService,
+  ) { }
 
   ngOnInit(): void {
+    this.fetchDataByCountry();
+  }
+
+  fetchDataByCountry(){
+    this.dataCovidService.getCountryData()
+        .subscribe(data => {
+          console.log(data);
+        })
   }
 
 }

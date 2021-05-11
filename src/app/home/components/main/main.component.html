@@ -118,6 +118,12 @@
                     >
                     </app-map-bubbles>
 
+                    <img
+                        class="content__img"
+                        *ngIf="!mapDataCountries"
+                        src="../../../../assets/image/mapW.svg" 
+                        alt="MapW">
+
                 </div>
             </div>
             
@@ -129,20 +135,21 @@
                             type="text" 
                             class="form-control" 
                             placeholder="Filter to a location"
-                            [(ngModel)]="country"
+                            [(ngModel)]="query"
+                            id="listSearch"
                             >
                         <button 
                             class="btn__icon-close"
-                            mat-button *ngIf="country" 
+                            mat-button *ngIf="query" 
                             matSuffix mat-icon-button 
-                            aria-label="Clear" (click)="country=''">
+                            aria-label="Clear" (click)="query=''">
                             <mat-icon>close</mat-icon>
                         </button>
                         <button 
                             class="btn__icon-location"
                             mat-button
                             matSuffix mat-icon-button 
-                            aria-label="Location" (click)="country='Spain'">
+                            aria-label="Location" (click)="query=location">
                             <mat-icon>near_me</mat-icon>
                         </button>
                     </div>
@@ -150,7 +157,7 @@
 
                 </div>
 
-                <div class="select__country-show">
+                <div class="select__country-show" *ngIf="totalConfirmed">
                     <div class="select__item-country">
                         <span class="title">Global</span>
                         <span class="subtitle">
@@ -159,22 +166,28 @@
                     </div>
                 </div>
 
+                <ng-container *ngIf="!totalConfirmed">
+                    <div class="select__country-show">
+                        <div class="select__item-country skeleton">
+                        </div>
+                    </div>
+                </ng-container>
+                
+
+            
                 <hr class="hr">
                 
                 <div class="select__country-select">
                     
-                    <ng-container *ngFor="let country of countries" >
+                    <ng-container *ngFor="let country of countries | searchFilter: query" >
                         <a class="link" [routerLink]="['/country', country.Slug]">
                             
-                            <div 
-                                class="select__item-select" 
-                                
-                                >
+                            <div class="select__item-select" >
                                 <div class="content-country">
                                     <img class="img-country" 
                                     src="https://www.countryflags.io/{{country.CountryCode}}/flat/64.png" 
                                     [alt]="country.Country">
-                                    <span class="title">
+                                    <span class="title" [matTooltip]="country.Country">
                                         {{country.Country}} 
                                     </span>
                                 </div>
@@ -186,6 +199,15 @@
                         </a>
 
                     </ng-container>
+                    
+
+                    <ng-container *ngIf="!countries">
+
+                        <div class="select__item-select skeleton" *ngFor="let item of loadingItems">
+                        </div>
+
+                    </ng-container>
+                    
                     
                 </div>
 
