@@ -24,12 +24,12 @@
 @import 'components/collapse';
 
 // 4. Layout
-@import 'layout/hero';
-@import 'layout/main';
-@import 'layout/info';
-@import 'layout/faq';
-@import 'layout/news';
-@import 'layout/footer';
+@import 'layout/home/hero';
+@import 'layout/home/main';
+@import 'layout/home/info';
+@import 'layout/home/faq';
+@import 'layout/home/news';
+@import 'layout/home/footer';
 
 
 // 6. Overrides

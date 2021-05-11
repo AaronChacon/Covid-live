@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { ICountries, IDataCovid, IMapCountries } from 'src/app/core/interfaces/covid.interfaces';
 import { DataCovidService } from '../../../core/services/data-covid.service';
 import { IpLocationService } from '../../../core/services/ip-location.service';
 
@@ -9,27 +10,23 @@ import { IpLocationService } from '../../../core/services/ip-location.service';
 })
 export class MainComponent implements OnInit {
 
-  //country: string;
-  query: string;
-  
-  countries: any;
-  countriesData: any;
-  countriesKey: any;
-  dataCovid:any;
+  dataCovid:IDataCovid;
+  currentDate:string;
+  countries:ICountries[];
 
   totalConfirmed = 0;
   totalDeaths = 0;
   totalRecovered = 0;
-  currentDate:any;
 
-  trendingConfirmed:any;
-  trendingRecovered:any;
-  trendingDeaths:any;
+  trendingConfirmed:number;
+  trendingRecovered:number;
+  trendingDeaths:number;
 
-  @Output() mapDataCountries:any;
+  @Output() mapDataCountries:IMapCountries[];
   location: string;
-
+  query: string;
   loadingItems = [true,true,true,true,true,true,true,true]
+
 
 
   constructor(
@@ -48,7 +45,7 @@ export class MainComponent implements OnInit {
           
           //All data
           this.dataCovid = data;
-          //console.log(this.dataCovid)
+          console.log(this.dataCovid)
 
           //Totals data
           this.totalConfirmed = this.dataCovid.Global.TotalConfirmed;
@@ -71,7 +68,7 @@ export class MainComponent implements OnInit {
           
           //Countries
           this.countries = this.dataCovid.Countries
-          //console.log(this.countries)
+          console.log(this.countries)
 
           //MapCountries
           this.mapDataCountries = this.countries.map(country => {
@@ -88,7 +85,7 @@ export class MainComponent implements OnInit {
       
           });
 
-          //console.log(this.mapDataCountries);
+          console.log(this.mapDataCountries);
 
         })
   }
@@ -96,7 +93,7 @@ export class MainComponent implements OnInit {
   fetchIpLocation(){
     this.ipLocationService.getIpLocation()
         .subscribe((data:any) =>{
-          //console.log(data);
+          console.log(data);
           this.location = data.country_name;
         })
   }
