@@ -1,0 +1,11 @@
+.country{
+    min-height: calc(100vh - 88px);
+    background-color: $base;
+    @include flexbox-center();
+
+    .country__container{
+        @include min-x-large(){
+            width: 80.42%;
+        }
+    }
+}
