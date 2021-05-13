@@ -8,6 +8,10 @@ import { DataCovidService } from '../core/services/data-covid.service';
 })
 export class CountryComponent implements OnInit {
 
+  query: string;
+  location = 'venezuela';
+  loadingItems = [true,true,true,true,true,true,true,true];
+
   constructor(
     private dataCovidService: DataCovidService,
   ) { }

@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { CountryRoutingModule } from './country-routing.module';
 import { CountryComponent } from './country.component';
+import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +15,11 @@ import { CountryComponent } from './country.component';
   ],
   imports: [
     CommonModule,
-    CountryRoutingModule
+    CountryRoutingModule,
+    SharedModule,
+    MaterialModule,
+    RouterModule,
+    FormsModule,
   ]
 })
 export class CountryModule { }
