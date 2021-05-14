@@ -1,112 +1,202 @@
 <div class="country">
-    <section class="section__data">
-        <div class="container__map-chart">
-
-            <div class="card card__data card__data--map-country">
-                sd
-            </div>
-
-            <div class="container__charts">
-
-                <div class="card card__data card__data--charts-dual">
-                    sd
-                </div>
-
-                <div class="card card__data card__data--charts-dual">
-                    sd
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="card card__data card__data--select">
-            
-            <div class="select__input">
-                <div class="input__group input__location">
-                    <input 
-                        type="text" 
-                        class="form-control" 
-                        placeholder="Filter to a location"
-                        [(ngModel)]="query"
-                        id="listSearch-country"
-                        >
-                    <button 
-                        class="btn__icon-close"
-                        mat-button *ngIf="query" 
-                        matSuffix mat-icon-button 
-                        aria-label="Clear" (click)="query=''">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                    <button 
-                        class="btn__icon-location"
-                        mat-button
-                        matSuffix mat-icon-button 
-                        aria-label="Location" (click)="query=location">
-                        <mat-icon>near_me</mat-icon>
-                    </button>
-                </div>
-                  
-
-            </div>
-
-            <!-- <div class="select__country-show" *ngIf="totalConfirmed">
-                <div class="select__item-country">
-                    <span class="title">Global</span>
-                    <span class="subtitle">
-                        {{totalConfirmed | number}}
-                    </span>
-                </div>
-            </div> -->
-
-            <ng-container>
-                <div class="select__country-show">
-                    <div class="select__item-country skeleton">
-                    </div>
-                </div>
-            </ng-container>
-            
-
+    <div class="container-fluid | country__container">
         
-            <hr class="hr">
-            
-            <div class="select__country-select">
-                
-                <!-- <ng-container *ngFor="let country of countries | searchFilter: query" >
-                    <a class="link" [routerLink]="['/country', country.Slug]">
-                        
-                        <div class="select__item-select" >
-                            <div class="content-country">
-                                <img class="img-country" 
-                                src="https://www.countryflags.io/{{country.CountryCode}}/flat/64.png" 
-                                [alt]="country.Country">
-                                <span class="title" [matTooltip]="country.Country">
-                                    {{country.Country}} 
-                                </span>
-                            </div>
-                            <span class="subtitle">
-                                {{country.TotalConfirmed | number}}
-                            </span>
+        <section class="section__info-country">
+            <div class="card card__status card__status--md">
+
+                <div class="data-status">
+                    <img class="data-status__img" 
+                        src="https://www.countryflags.io/{{code}}/flat/64.png" 
+                        alt="global-data">
+                    <div class="data-status__info">
+                        <p class="status__info-sub">
+                            Stats Overview
+                        </p>
+                        <p class="status__info-title" *ngIf="country">
+                            {{ country }}
+                        </p>
+                        <p class="status__info-title" *ngIf="!country">
+                            loading...
+                        </p>
+                        <div class="status__trending" *ngIf="countryData">
+                            {{countryData.Date | date: 'fullDate'}}
                         </div>
-
-                    </a>
-
-                </ng-container> -->
-                
-
-                <ng-container>
-
-                    <div class="select__item-select skeleton" *ngFor="let item of loadingItems">
                     </div>
+                </div>
 
+                <div class="data-status">
+                    <img class="data-status__img" 
+                    src="../../../../assets/image/data-status-b.svg" alt="global-data">
+                    <div class="data-status__info">
+                        <p class="status__info-sub">
+                            Total Coronavirus Cases                        
+                        </p>
+                        <p class="status__info-title" *ngIf="countryData">
+                            {{countryData.TotalConfirmed | number}}
+                        </p>
+                        <p class="status__info-title" *ngIf="!countryData">
+                            loading...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="data-status">
+                    <img class="data-status__img" 
+                    src="../../../../assets/image/data-status-c.svg" alt="global-data">
+                    <div class="data-status__info">
+                        <p class="status__info-sub">
+                            Total Recovered                       
+                        </p>
+                        <p class="status__info-title" *ngIf="countryData">
+                            {{countryData.TotalRecovered | number}}
+                        </p>
+                        <p class="status__info-title" *ngIf="!countryData">
+                            loading...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="data-status">
+                    <img class="data-status__img" src="../../../../assets/image/data-status-e.svg" alt="global-data">
+                    <div class="data-status__info">
+                        <p class="status__info-sub">
+                            Total active                       
+                        </p>
+                        <p class="status__info-title" *ngIf="countryData">
+                            {{countryData.TotalConfirmed - countryData.TotalRecovered | number}}
+                        </p>
+                        <p class="status__info-title" *ngIf="!countryData">
+                            loading...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="data-status">
+                    <img class="data-status__img" src="../../../../assets/image/data-status-d.svg" alt="global-data">
+                    <div class="data-status__info">
+                        <p class="status__info-sub">
+                            Total Deaths                       
+                        </p>
+                        <p class="status__info-title" *ngIf="countryData">
+                            {{countryData.TotalDeaths | number}}
+                        </p>
+                        <p class="status__info-title" *ngIf="!countryData">
+                            loading...
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section__data">
+            <div class="container__map-chart">
+    
+                <div class="card card__data card__data--map-country">
+                    <app-chart-area 
+                        *ngIf="allDataFirstChart"
+                        class="chart-area"
+                        [dataChart]="allDataFirstChart"
+                        >
+                    </app-chart-area>
+                </div>
+    
+                <div class="container__charts">
+    
+                    <div class="card card__data card__data--charts-dual">
+                        sd
+                    </div>
+    
+                    <div class="card card__data card__data--charts-dual">
+                        sd
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <div class="card card__data card__data--select">
+                
+                <div class="select__input">
+                    <div class="input__group input__location">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Filter to a location"
+                            [(ngModel)]="query"
+                            id="listSearch-country"
+                            >
+                        <button 
+                            class="btn__icon-close"
+                            mat-button *ngIf="query" 
+                            matSuffix mat-icon-button 
+                            aria-label="Clear" (click)="query=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <button 
+                            class="btn__icon-location"
+                            mat-button
+                            matSuffix mat-icon-button 
+                            aria-label="Location" (click)="query=location">
+                            <mat-icon>near_me</mat-icon>
+                        </button>
+                    </div>
+                      
+    
+                </div>
+    
+                <div class="select__country-show" *ngIf="totalConfirmed">
+                    <div class="select__item-country">
+                        <span class="title">Global</span>
+                        <span class="subtitle">
+                            {{totalConfirmed | number}}
+                        </span>
+                    </div>
+                </div>
+    
+                <ng-container *ngIf="!totalConfirmed">
+                    <div class="select__country-show">
+                        <div class="select__item-country skeleton">
+                        </div>
+                    </div>
                 </ng-container>
                 
+    
+            
+                <hr class="hr">
                 
+                <div class="select__country-select">
+                    
+                    <ng-container *ngFor="let country of countriesData | searchFilter: query" >
+                        <a class="link" [routerLink]="['/country', country.CountryCode, country.Slug]">
+                            
+                            <div class="select__item-select" >
+                                <div class="content-country">
+                                    <img class="img-country" 
+                                    src="https://www.countryflags.io/{{country.CountryCode}}/flat/64.png" 
+                                    [alt]="country.Country">
+                                    <span class="title" [matTooltip]="country.Country">
+                                        {{country.Country}} 
+                                    </span>
+                                </div>
+                                <span class="subtitle">
+                                    {{country.TotalConfirmed | number}}
+                                </span>
+                            </div>
+    
+                        </a>
+                    </ng-container>
+                    
+    
+                    <ng-container *ngIf="!countriesData">
+                        <div class="select__item-select skeleton" *ngFor="let item of loadingItems">
+                        </div>
+                    </ng-container>
+                    
+                    
+                </div>
+    
             </div>
-
-        </div>
-
-
-
-    </section>
+        </section>
+    </div>
 </div>

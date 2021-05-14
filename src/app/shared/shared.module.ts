@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { MapBubblesComponent } from './map-bubbles/map-bubbles.component';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { ChartAreaComponent } from './chart-area/chart-area.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
@@ -15,17 +17,21 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     FooterComponent,
     MapBubblesComponent,
     SearchFilterPipe,
+    ChartAreaComponent,
+    
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    NgApexchartsModule,
   ],
   exports: [
     NavComponent,
     FooterComponent,
     MapBubblesComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    ChartAreaComponent
   ]
 })
 export class SharedModule { }

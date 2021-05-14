@@ -16,8 +16,21 @@ export class DataCovidService {
     return this.httpClient.get<any>(`${this.covidURL}/summary`);
   }
 
-  getCountryData():Observable<any>{
-    return this.httpClient.get<any>('https://api.covid19api.com/country/albania/status/confirmed?from=2020-01-01T00:00:00Z&to=2021-05-12T00:00:00Z')
+  getCountryData(country):Observable<any>{
+    /*
+    let initDate = '2020-01-01T00:00:00Z'
+    let date = new Date();
+    let initDate = new Date(date.getTime() - 6 * 24 * 60 * 60 * 1000).toISOString();
+    let endDate = new Date().toISOString();
+    console.log(initDate);
+    console.log(endDate); 
+    
+    */
+    return this.httpClient.get<any>(`${this.covidURL}/total/country/${country}`)
+  }
+
+  getListCountries():Observable<any>{
+    return this.httpClient.get<any>(`${this.covidURL}/countries`)
   }
 
 }

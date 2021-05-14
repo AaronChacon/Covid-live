@@ -35,3 +35,23 @@ export interface IMapCountries {
 	value: number;
 	color: string;
 }
+
+export interface IDataCountry{
+    Active: number,
+    City: string,
+    CityCode: string,
+    Confirmed: number,
+    Country: string,
+    CountryCode: string,
+    Date: string,
+    Deaths: number,
+    Lat: string,
+    Lon: string,
+    Province: string,
+    Recovered: number,
+}
+
+export interface IChartAreaData{
+    name: string,
+    data: [number,number]
+}

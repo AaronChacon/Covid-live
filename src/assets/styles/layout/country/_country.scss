@@ -3,16 +3,18 @@
     background-color: $base;
 
     .country__container{
-        @include min-x-large(){
+        padding: 2rem;
+
+        /* @include min-x-large(){
             width: 80.42%;
-        }
+        } */
     }
 
     .section__data{
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 2rem;
+        
         margin-bottom: 0px;
 
         .container__map-chart{
@@ -30,8 +32,14 @@
         }
 
         .card__data--map-country{
+            @include flexbox-center();
             height: calc(100vh - 88px - 64px); // a.vh b.navbar c.padding
             margin-bottom: 2rem;
+
+            .chart-area{
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .card__data--select{

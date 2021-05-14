@@ -180,7 +180,7 @@
                 <div class="select__country-select">
                     
                     <ng-container *ngFor="let country of countries | searchFilter: query" >
-                        <a class="link" [routerLink]="['/country', country.Slug]">
+                        <a class="link" [routerLink]="['/country', country.CountryCode, country.Slug]">
                             
                             <div class="select__item-select" >
                                 <div class="content-country">
@@ -197,7 +197,6 @@
                             </div>
 
                         </a>
-
                     </ng-container>
                     
 
