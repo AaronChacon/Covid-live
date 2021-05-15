@@ -76,6 +76,7 @@
         .card__data--charts-dual{
             width: 48.495%;
             min-height: 352px;
+            @include flexbox-center();
 
             @include medium{
                 width: 100%;

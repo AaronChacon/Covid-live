@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { IChartAreaData, IDataCountry, IDataCovid, ICountries } from '../core/interfaces/covid.interfaces';
 import { DataCovidService } from '../core/services/data-covid.service';
+import { IpLocationService } from '../core/services/ip-location.service';
 
 @Component({
   selector: 'app-country',
@@ -17,7 +18,7 @@ export class CountryComponent implements OnInit {
   totalConfirmed: number;
   countryData: ICountries;
   countriesData: ICountries[];
-  location = 'venezuela';
+  location:string;
   loadingItems = [true,true,true,true,true,true,true,true];
 
   
@@ -46,21 +47,22 @@ export class CountryComponent implements OnInit {
     private dataCovidService: DataCovidService,
     private route: ActivatedRoute,
     private router: Router,
+    private ipLocationService: IpLocationService
   ) {
 
   }
 
   ngOnInit(): void {
     this.getCountryById();
-    
+    this.fetchIpLocation();
   }
 
   getCountryById(){
     this.route.params.subscribe(params => {
       this.country = params.id;
       this.code = params.code;
-      console.log(this.country);
-      console.log(this.code);
+      //console.log(this.country);
+      //console.log(this.code);
       this.fetchDataByCountry(this.country);
       this.fetchDataAllCountry();
     })
@@ -69,8 +71,6 @@ export class CountryComponent implements OnInit {
   fetchDataByCountry(country){
     this.dataCovidService.getCountryData(country)
         .subscribe((data:any) => {
-          console.log(data);
-        
           let dataConfirm =  data.map((country:IDataCountry) => {
             let confirm = country.Confirmed;
             let date = new Date(country.Date).getTime();
@@ -118,12 +118,6 @@ export class CountryComponent implements OnInit {
             name: "Deaths",
             data: dataDeaths
           }
-          
-          
-          /* console.log(allDataConfirmed);
-          console.log(allDataRecovered);
-          console.log(allDataActive);
-          console.log(allDataDeaths);  */
          
 
           this.allDataFirstChart = [allDataConfirmed, allDataRecovered, allDataActive, allDataDeaths];
@@ -133,19 +127,6 @@ export class CountryComponent implements OnInit {
           this.firstChart.next(this.allDataFirstChart);
           this.secondChart.next(this.allDataSecondChart);
           this.thirdChart.next(this.allDataThirdChart);
-
-          /* console.log(this.firstChart);
-          console.log(this.firstChart$);
-
-          console.log('----');
-          
-          console.log(this.secondChart);
-          console.log(this.secondChart$);
-          
-          console.log('----');
-          
-          console.log(this.thirdChart);
-          console.log(this.thirdChart$); */
           
 
         })
@@ -155,14 +136,9 @@ export class CountryComponent implements OnInit {
     this.dataCovidService.getAllData()
         .subscribe((data:IDataCovid) => {
 
-          console.log(data);
-
           this.totalConfirmed = data.Global.TotalConfirmed;
 
           this.countriesData = data.Countries;
-
-          console.log(this.countriesData);
-          
 
           let date = new Date();
           let today = new Date(date.getTime() - 1 * 24 * 60 * 60 * 1000).toISOString();
@@ -175,10 +151,16 @@ export class CountryComponent implements OnInit {
           //console.log(filterByCountry);
           
           this.countryData = filterByCountry[0];
-
-          console.log(this.countryData);
           
         });
+  }
+
+  fetchIpLocation(){
+    this.ipLocationService.getIpLocation()
+        .subscribe((data:any) =>{
+          //console.log(data);
+          this.location = data.country_name;
+        })
   }
 
 }

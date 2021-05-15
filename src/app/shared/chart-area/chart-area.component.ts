@@ -29,6 +29,7 @@ export type ChartOptions = {
 };
 
 import numeral from 'numeral';
+import { IChartAreaData } from '../../core/interfaces/covid.interfaces';
 @Component({
   selector: 'app-chart-area',
   templateUrl: './chart-area.component.html',
@@ -43,18 +44,17 @@ export class ChartAreaComponent implements OnInit {
   @Input() dataChart: Observable<any>;
   @Input() height: number;
   @Input() color: string[];
-
-
-  seriesData: any;
+  seriesData: IChartAreaData[] = [];
+  loading = false;
 
   constructor() {}
 
   ngOnInit(): void {
 
     this.dataChart.subscribe((data) => {
-      console.log(data);
+      this.seriesData = data;
       this.chartOptions = {
-        series: data,
+        series: this.seriesData,
         chart: {
           type: 'line',
           width: '100%',
@@ -118,7 +118,7 @@ export class ChartAreaComponent implements OnInit {
               title: 'Size: '
           },
         }
-      };
+      }
     })
     
     

@@ -3,6 +3,8 @@
 
     <apx-chart
         class="chart-w"
+        *ngIf="this.seriesData.length"
+
         [series]="chartOptions.series"
         [chart]="chartOptions.chart"
         [xaxis]="chartOptions.xaxis"
@@ -15,6 +17,11 @@
         [stroke]="chartOptions.stroke"
         >
     </apx-chart>
+
+    <div class="no__data-img" *ngIf="!this.seriesData.length">
+        <p class="typo__title">Without data</p>
+        <img class="image" src="../../../assets/image/no-data-chart.svg" alt="no-data">
+    </div>
 
 </div>
   
