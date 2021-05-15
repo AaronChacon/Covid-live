@@ -28,6 +28,7 @@ export type ChartOptions = {
   stroke: ApexStroke;
 };
 
+import numeral from 'numeral';
 @Component({
   selector: 'app-chart-area',
   templateUrl: './chart-area.component.html',
@@ -53,7 +54,7 @@ export class ChartAreaComponent implements OnInit {
         series: data,
         chart: {
           type: "line",
-          height: 528.4,
+          height: 550,
           stacked: false,
           fontFamily: 'Graphik, Helvetica Neue, sans-serif',
           events: {
@@ -85,7 +86,25 @@ export class ChartAreaComponent implements OnInit {
         },
         tooltip: {
           enabled: true,
-          theme: "dark"
+          theme: "dark",
+          style: {
+            fontSize: '12px',
+            fontFamily: undefined
+          },
+          x: {
+            show: true,
+            format: 'dd MMM yyyy',
+            formatter: undefined,
+          },
+          y: {
+            formatter: (value) => {
+              return `${numeral(value).format('0,0')}`;
+            },
+          },
+          z: {
+              formatter: undefined,
+              title: 'Size: '
+          },
         }
       };
     })
