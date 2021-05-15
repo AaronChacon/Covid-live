@@ -1,6 +1,13 @@
-:root{
-    height: 528px;
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    //height: 100%;
+    
+    .container-chart-w{
+        width: 100%;
+        //height: 100%;
+    }
 }
-.chart-w{
-    height: 100%;
-}
+

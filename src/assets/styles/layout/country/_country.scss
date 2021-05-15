@@ -4,10 +4,12 @@
 
     .country__container{
         padding: 2rem;
+        padding-top: 4.063rem;
+        padding-bottom: 4.75rem;
 
-        /* @include min-x-large(){
+        @include min-x-large(){
             width: 80.42%;
-        } */
+        }
     }
 
     .section__data{
@@ -18,8 +20,12 @@
         margin-bottom: 0px;
 
         .container__map-chart{
-            width: 73.165%;
-            //height: 1400px;
+            //width: 73.165%;
+            width: 65.75%;
+
+            @include m-large{
+                width: 100%;
+            }
 
             .container__charts{
                 width: 100%;
@@ -27,31 +33,58 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
+
+                @include medium{
+                    width: 100%;
+                    flex-direction: column
+                }
             }
 
         }
 
         .card__data--map-country{
             @include flexbox-center();
-            height: calc(100vh - 88px - 64px); // a.vh b.navbar c.padding
+            min-height: calc(100vh - 88px - 64px); // a.vh b.navbar c.padding
             margin-bottom: 2rem;
 
-            .chart-area{
-                width: 100%;
-                height: 100%;
+            @include small{
+                min-height: 550px;
             }
         }
 
         .card__data--select{
             top: 2rem;
             position: sticky;
-            width: 24.635%;
+            //width: 24.635%;
+            width: 31.51%;
             height: calc(100vh - 88px - 64px); // a.vh b.navbar c.padding
+
+            @include m-large{
+                top: 0;
+                position: static;
+                width: 100%;
+                height: 370px;
+            }
+            
+            @include small{
+                //height: 370px
+                height: 19.063rem;
+            }
+
         }
 
         .card__data--charts-dual{
             width: 48.495%;
-            height: 352px;
+            min-height: 352px;
+
+            @include medium{
+                width: 100%;
+                
+                &:first-child{
+                    margin-bottom: 2rem;
+                }
+
+            }
         }
         
 

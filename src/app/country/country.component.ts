@@ -20,9 +20,25 @@ export class CountryComponent implements OnInit {
   location = 'venezuela';
   loadingItems = [true,true,true,true,true,true,true,true];
 
+  
   allDataFirstChart: IChartAreaData[];
-  FirstChart = new BehaviorSubject<IChartAreaData[]>([]);
-  FirstChart$ = this.FirstChart.asObservable();
+  firstChart = new BehaviorSubject<IChartAreaData[]>([]);
+  firstChart$ = this.firstChart.asObservable();
+  heightFirstChart = 502.4;
+  colorFirstChart = ["#FF4560", "#00E396", "#FEB019", "#2E294E"];
+  
+  allDataSecondChart: IChartAreaData[];
+  secondChart = new BehaviorSubject<IChartAreaData[]>([]);
+  secondChart$ = this.secondChart.asObservable();
+  heightSecondChart = 295;
+  colorSecondChart = ["#FEB019"];
+  
+  allDataThirdChart: IChartAreaData[];
+  thirdChart = new BehaviorSubject<IChartAreaData[]>([]);
+  thirdChart$ = this.thirdChart.asObservable();
+  heightThirdChart = 295;
+  colorThirdChart = ["#2E294E"];
+
 
   
 
@@ -110,14 +126,26 @@ export class CountryComponent implements OnInit {
           console.log(allDataDeaths);  */
          
 
-          this.allDataFirstChart = [allDataConfirmed, allDataRecovered, allDataActive, allDataDeaths]
-          
-          console.log(this.allDataFirstChart);
-          
-          this.FirstChart.next(this.allDataFirstChart);
+          this.allDataFirstChart = [allDataConfirmed, allDataRecovered, allDataActive, allDataDeaths];
+          this.allDataSecondChart = [allDataActive];
+          this.allDataThirdChart = [allDataDeaths];
 
-          console.log(this.FirstChart);
-          console.log(this.FirstChart$);
+          this.firstChart.next(this.allDataFirstChart);
+          this.secondChart.next(this.allDataSecondChart);
+          this.thirdChart.next(this.allDataThirdChart);
+
+          /* console.log(this.firstChart);
+          console.log(this.firstChart$);
+
+          console.log('----');
+          
+          console.log(this.secondChart);
+          console.log(this.secondChart$);
+          
+          console.log('----');
+          
+          console.log(this.thirdChart);
+          console.log(this.thirdChart$); */
           
 
         })

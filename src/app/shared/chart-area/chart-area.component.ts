@@ -13,14 +13,14 @@ import {
   ApexStroke
 } from "ng-apexcharts";
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
   yaxis: ApexYAxis;
+  dataLabels: ApexDataLabels;
   colors: string[];
   legend: ApexLegend;
   fill: ApexFill;
@@ -41,6 +41,9 @@ export class ChartAreaComponent implements OnInit {
   public chartOptions: Partial<ChartOptions>;
 
   @Input() dataChart: Observable<any>;
+  @Input() height: number;
+  @Input() color: string[];
+
 
   seriesData: any;
 
@@ -53,8 +56,9 @@ export class ChartAreaComponent implements OnInit {
       this.chartOptions = {
         series: data,
         chart: {
-          type: "line",
-          height: 550,
+          type: 'line',
+          width: '100%',
+          height: this.height,
           stacked: false,
           fontFamily: 'Graphik, Helvetica Neue, sans-serif',
           events: {
@@ -63,7 +67,7 @@ export class ChartAreaComponent implements OnInit {
             }
           }
         },
-        colors: ["#FF4560", "#00E396", "#FEB019", "#2E294E"],
+        colors: this.color,
         dataLabels: {
           enabled: false
         },
@@ -78,11 +82,19 @@ export class ChartAreaComponent implements OnInit {
           }
         },
         legend: {
+          show: false,
           position: "top",
           horizontalAlign: "left"
         },
         xaxis: {
           type: "datetime"
+        },
+        yaxis: {
+          labels: {
+            formatter: (value) => {
+              return `${numeral(value).format('0,0')}`;
+            },
+          }
         },
         tooltip: {
           enabled: true,

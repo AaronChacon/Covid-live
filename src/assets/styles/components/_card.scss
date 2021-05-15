@@ -26,6 +26,18 @@
 
             .data-status{
                 align-items: center;
+                text-align: center;
+                min-width: 13rem;
+                width: 13rem;
+
+                @include small{
+                    min-width: 9rem;
+                    width: 9rem;
+                }
+            }
+
+            .data-status__info{
+                margin-left: 0;
             }
         }
 
