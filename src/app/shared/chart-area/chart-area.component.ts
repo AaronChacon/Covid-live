@@ -13,6 +13,8 @@ import {
   ApexStroke
 } from "ng-apexcharts";
 
+import { BehaviorSubject, Observable } from 'rxjs';
+
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -33,58 +35,62 @@ export type ChartOptions = {
 })
 export class ChartAreaComponent implements OnInit {
 
-  //@Input() valueConfirm: any;
-  @Input() dataChart: any;
-
+  
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  constructor() {
-    
-  }
+  @Input() dataChart: Observable<any>;
+
+  seriesData: any;
+
+  constructor() {}
 
   ngOnInit(): void {
-    console.log(this.dataChart);
-    
-    this.chartOptions = {
-      series: this.dataChart,
-      chart: {
-        type: "line",
-        height: 528.4,
-        stacked: false,
-        fontFamily: 'Graphik, Helvetica Neue, sans-serif',
-        events: {
-          selection: function(chart, e) {
-            console.log(new Date(e.xaxis.min));
+
+    this.dataChart.subscribe((data) => {
+      console.log(data);
+      this.chartOptions = {
+        series: data,
+        chart: {
+          type: "line",
+          height: 528.4,
+          stacked: false,
+          fontFamily: 'Graphik, Helvetica Neue, sans-serif',
+          events: {
+            selection: function(chart, e) {
+              console.log(new Date(e.xaxis.min));
+            }
           }
+        },
+        colors: ["#FF4560", "#00E396", "#FEB019", "#2E294E"],
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth',
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            opacityFrom: 0.3,
+            opacityTo: 0.7
+          }
+        },
+        legend: {
+          position: "top",
+          horizontalAlign: "left"
+        },
+        xaxis: {
+          type: "datetime"
+        },
+        tooltip: {
+          enabled: true,
+          theme: "dark"
         }
-      },
-      colors: ["#FF4560", "#00E396", "#FEB019", "#2E294E"],
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: 'smooth',
-      },
-      fill: {
-        type: "gradient",
-        gradient: {
-          opacityFrom: 0.3,
-          opacityTo: 0.7
-        }
-      },
-      legend: {
-        position: "top",
-        horizontalAlign: "left"
-      },
-      xaxis: {
-        type: "datetime"
-      },
-      tooltip: {
-        enabled: true,
-        theme: "dark"
-      }
-    };
+      };
+    })
+    
+    
 
   }
   

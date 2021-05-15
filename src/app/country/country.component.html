@@ -94,9 +94,9 @@
     
                 <div class="card card__data card__data--map-country">
                     <app-chart-area 
-                        *ngIf="allDataFirstChart"
+                        *ngIf="FirstChart$"
                         class="chart-area"
-                        [dataChart]="allDataFirstChart"
+                        [dataChart]="FirstChart$"
                         >
                     </app-chart-area>
                 </div>

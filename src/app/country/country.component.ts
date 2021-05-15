@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router, } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { IChartAreaData, IDataCountry, IDataCovid, ICountries } from '../core/interfaces/covid.interfaces';
 import { DataCovidService } from '../core/services/data-covid.service';
 
@@ -19,30 +20,34 @@ export class CountryComponent implements OnInit {
   location = 'venezuela';
   loadingItems = [true,true,true,true,true,true,true,true];
 
-  @Output() allDataFirstChart: IChartAreaData[];
+  allDataFirstChart: IChartAreaData[];
+  FirstChart = new BehaviorSubject<IChartAreaData[]>([]);
+  FirstChart$ = this.FirstChart.asObservable();
+
+  
 
   constructor(
     private dataCovidService: DataCovidService,
     private route: ActivatedRoute,
     private router: Router,
-  ) {}
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.getCountryById();
-    this.fetchDataAllCountry();
-
     
   }
 
   getCountryById(){
-    this.route.paramMap
-        .subscribe((params: ParamMap) => {
-          this.country = params.get('id');
-          this.code = params.get('code');
-          console.log(this.country);
-          console.log(this.code);
-          this.fetchDataByCountry(this.country);
-        })
+    this.route.params.subscribe(params => {
+      this.country = params.id;
+      this.code = params.code;
+      console.log(this.country);
+      console.log(this.code);
+      this.fetchDataByCountry(this.country);
+      this.fetchDataAllCountry();
+    })
   }
 
   fetchDataByCountry(country){
@@ -98,14 +103,21 @@ export class CountryComponent implements OnInit {
             data: dataDeaths
           }
           
-          /* 
-          console.log(allDataConfirmed);
+          
+          /* console.log(allDataConfirmed);
           console.log(allDataRecovered);
           console.log(allDataActive);
-          console.log(allDataDeaths); 
-          */
+          console.log(allDataDeaths);  */
+         
 
           this.allDataFirstChart = [allDataConfirmed, allDataRecovered, allDataActive, allDataDeaths]
+          
+          console.log(this.allDataFirstChart);
+          
+          this.FirstChart.next(this.allDataFirstChart);
+
+          console.log(this.FirstChart);
+          console.log(this.FirstChart$);
           
 
         })
