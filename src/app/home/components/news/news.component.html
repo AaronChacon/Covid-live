@@ -1,4 +1,4 @@
-<div class="news">
+<div class="news" id="news">
     <div class="container-fluid | news__container">
         <section class="news__primary">
             <h3 class="typo__title">News topics</h3>
@@ -9,13 +9,13 @@
                     <div class="card card__news" *ngFor="let news of listNews.slice(0, 3)">
                         <div 
                             class="news__img" 
-                            [ngStyle]="{'background-image': 'url('+( news.urlToImage ) +')' }">
+                            [ngStyle]="{'background-image': 'url('+( news.image ) +')' }">
                         </div>
                         <div class="news__info">
-                            <h4 class="title">
+                            <h4 class="title"  [matTooltip]="news.title">
                                 {{news.title}}
                             </h4>
-                            <p class="parag">
+                            <p class="parag" [matTooltip]="news.description">
                                 {{news.description}}
                             </p>
                             <div class="bottom__info">
@@ -23,7 +23,7 @@
                                     {{news.publishedAt | date: 'mediumDate'}}
                                 </span>
                                 <a [href]="news.url" target="_blank" rel="noopener noreferrer">
-                                    <span class="more">
+                                    <span class="more" [matTooltip]="'Go to article'">
                                         read more
                                     </span>
                                 </a>

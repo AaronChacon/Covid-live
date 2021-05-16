@@ -96,9 +96,7 @@ export class MainComponent implements OnInit {
           console.log(data);
           this.location = data.country_name;
         })
-  }
-
-  
+  }  
 
   
 

@@ -18,7 +18,7 @@ export class DataCovidService {
 
   getCountryData(country):Observable<any>{
     /*
-    let initDate = '2020-01-01T00:00:00Z'
+    let initDate = '2020-01-01T00:00:00Z' 
     let date = new Date();
     let initDate = new Date(date.getTime() - 6 * 24 * 60 * 60 * 1000).toISOString();
     let endDate = new Date().toISOString();

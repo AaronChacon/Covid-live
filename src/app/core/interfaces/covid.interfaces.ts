@@ -57,15 +57,14 @@ export interface IChartAreaData{
 }
 
 export interface INewsData{
-    author: string,
     content: string,
     description: string,    
+    image: string,
     publishedAt: string,
     source: {
-        id: string, 
         name: string,  
+        url: string, 
     }
     title: string,  
     url: string,  
-    urlToImage: string,
 }

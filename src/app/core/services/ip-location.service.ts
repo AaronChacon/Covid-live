@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class IpLocationService {
 
-  ipUrl = environment.API_IP_CHECK; 
+  /* ipUrl = environment.API_IP_CHECK; */ 
+  ipUrl = environment.API_IP_S;
 
   constructor(
     private httpClient: HttpClient,
@@ -17,4 +18,5 @@ export class IpLocationService {
   getIpLocation(): Observable<any>{
     return this.httpClient.get<any>(this.ipUrl);
   }
+
 }
