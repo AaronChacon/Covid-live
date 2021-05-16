@@ -55,3 +55,17 @@ export interface IChartAreaData{
     name: string,
     data: [number,number]
 }
+
+export interface INewsData{
+    author: string,
+    content: string,
+    description: string,    
+    publishedAt: string,
+    source: {
+        id: string, 
+        name: string,  
+    }
+    title: string,  
+    url: string,  
+    urlToImage: string,
+}

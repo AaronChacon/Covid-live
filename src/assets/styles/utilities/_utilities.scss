@@ -22,6 +22,16 @@
 
 /* components
    ========================================================================== */
+a {
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+strong{
+    color: $secondary;
+}
 
 .hr {
     border-color: $elements; 
