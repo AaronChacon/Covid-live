@@ -2,7 +2,9 @@
     <div class="container-fluid | nav__container">
 
         <a class="nav__logo" [routerLink]="['home']">
-            <img class="nav__logo-image" src="../../../assets/image/nav-logo.svg" alt="navLogo">
+            <img class="nav__logo-image" 
+            src="../../../assets/image/nav-logo.svg" 
+            alt="navLogo">
             Covid-19
         </a>
     
@@ -21,24 +23,18 @@
             <li class="nav__item">
               <a 
                 class="nav-link | nav__link nav__link--active" 
-                href="#">
+                [routerLink]="['home']">
                 Home 
             </a>
             </li>
             <li class="nav__item">
-              <a class="nav-link | nav__link" href="#">Our Results</a>
+              <a class="nav-link | nav__link" [routerLink]="['country', code, location]">Country</a>
             </li>
             <li class="nav__item">
-              <a class="nav-link | nav__link" href="#">Exterior</a>
+              <a class="nav-link | nav__link" [routerLink]="['home']">News</a>
             </li>
             <li class="nav__item">
-              <a class="nav-link | nav__link" href="#">Interior</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav-link | nav__link" href="#">About Us</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav-link | nav__link" href="#">Contact Us</a>
+              <a class="nav-link | nav__link" href="https://aaronch.com/" target="_blank" >Contact Us</a>
             </li>
           </ul>
         </div>

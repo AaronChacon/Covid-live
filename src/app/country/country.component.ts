@@ -59,18 +59,20 @@ export class CountryComponent implements OnInit {
 
   getCountryById(){
     this.route.params.subscribe(params => {
+      console.log(params);
       this.country = params.id;
       this.code = params.code;
       //console.log(this.country);
       //console.log(this.code);
       this.fetchDataByCountry(this.country);
-      this.fetchDataAllCountry();
     })
   }
 
   fetchDataByCountry(country){
     this.dataCovidService.getCountryData(country)
         .subscribe((data:any) => {
+          /* console.log(data); */
+          
           let dataConfirm =  data.map((country:IDataCountry) => {
             let confirm = country.Confirmed;
             let date = new Date(country.Date).getTime();
@@ -128,6 +130,7 @@ export class CountryComponent implements OnInit {
           this.secondChart.next(this.allDataSecondChart);
           this.thirdChart.next(this.allDataThirdChart);
           
+          this.fetchDataAllCountry();
 
         })
   }
@@ -145,12 +148,15 @@ export class CountryComponent implements OnInit {
           /* console.log(today); */
 
           let filterByDate = data.Countries.filter(value => value.Date >= today);
-          //console.log(filterByDate);
+          console.log(filterByDate);
           
           let filterByCountry = filterByDate.filter(value => value.Slug === this.country);
-          //console.log(filterByCountry);
+          console.log(filterByCountry);
           
           this.countryData = filterByCountry[0];
+
+          console.log(this.countryData);
+          
           
         });
   }
