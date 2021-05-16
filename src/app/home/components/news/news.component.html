@@ -6,7 +6,7 @@
             <div class="cards__content">
                 <ng-container *ngIf="listNews.length">
                     
-                    <div class="card card__news" *ngFor="let news of listNews.slice(10, 13)">
+                    <div class="card card__news" *ngFor="let news of listNews.slice(0, 3)">
                         <div 
                             class="news__img" 
                             [ngStyle]="{'background-image': 'url('+( news.urlToImage ) +')' }">

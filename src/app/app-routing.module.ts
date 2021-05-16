@@ -23,7 +23,7 @@ const routes: Routes = [
   }
   /* {
     path: '**', 
-    loadChildren: () => import('./pages/page-not-found/page-not-fount.module').then(m => m.PageNotFountModule),
+    loadChildren: () => import('.').then(m => m.PageNotFountModule),
   } */
 ];
 
