@@ -44,8 +44,10 @@ export class ChartAreaComponent implements OnInit {
   @Input() dataChart: Observable<any>;
   @Input() height: number;
   @Input() color: string[];
+  @Input() title: string;
   seriesData: IChartAreaData[] = [];
   loading = false;
+  
 
   constructor() {}
 

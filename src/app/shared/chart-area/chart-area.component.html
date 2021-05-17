@@ -1,6 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container-chart-w" id="chart">
-
+    <p class="title__chart" *ngIf="this.seriesData.length">
+        {{ title }}
+    </p>
     <apx-chart
         class="chart-w"
         *ngIf="this.seriesData.length"

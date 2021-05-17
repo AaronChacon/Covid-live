@@ -25,19 +25,19 @@ export class CountryComponent implements OnInit {
   allDataFirstChart: IChartAreaData[];
   firstChart = new BehaviorSubject<IChartAreaData[]>([]);
   firstChart$ = this.firstChart.asObservable();
-  heightFirstChart = 502.4;
+  heightFirstChart = 454.4;
   colorFirstChart = ["#FF4560", "#00E396", "#FEB019", "#2E294E"];
   
   allDataSecondChart: IChartAreaData[];
   secondChart = new BehaviorSubject<IChartAreaData[]>([]);
   secondChart$ = this.secondChart.asObservable();
-  heightSecondChart = 295;
+  heightSecondChart = 247;
   colorSecondChart = ["#FEB019"];
   
   allDataThirdChart: IChartAreaData[];
   thirdChart = new BehaviorSubject<IChartAreaData[]>([]);
   thirdChart$ = this.thirdChart.asObservable();
-  heightThirdChart = 295;
+  heightThirdChart = 247;
   colorThirdChart = ["#2E294E"];
 
 
