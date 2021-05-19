@@ -139,13 +139,16 @@ export class CountryComponent implements OnInit {
     this.dataCovidService.getAllData()
         .subscribe((data:IDataCovid) => {
 
+          console.log(data);
+          
+
           this.totalConfirmed = data.Global.TotalConfirmed;
 
           this.countriesData = data.Countries;
 
           let date = new Date();
-          let today = new Date(date.getTime() - 1 * 24 * 60 * 60 * 1000).toISOString();
-          /* console.log(today); */
+          let today = new Date(date.getTime() - 2 * 24 * 60 * 60 * 1000).toISOString();
+          console.log(today);
 
           let filterByDate = data.Countries.filter(value => value.Date >= today);
           console.log(filterByDate);
