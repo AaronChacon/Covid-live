@@ -147,7 +147,7 @@ export class CountryComponent implements OnInit {
           this.countriesData = data.Countries;
 
           let date = new Date();
-          let today = new Date(date.getTime() - 2 * 24 * 60 * 60 * 1000).toISOString();
+          let today = new Date(date.getTime() - 5 * 24 * 60 * 60 * 1000).toISOString();
           console.log(today);
 
           let filterByDate = data.Countries.filter(value => value.Date >= today);
