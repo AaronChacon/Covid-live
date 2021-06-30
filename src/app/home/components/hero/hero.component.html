@@ -11,13 +11,13 @@
 
             <div class="hero__info-btn">
 
-                <div class="btn btn-secondary | btn__secondary">
-                    How to Protect
+                <div class="btn btn-secondary | btn__secondary" [routerLink]="['home']" fragment="prevent"> 
+                    How to prevent
                     <i class="bi bi-chevron-right | icon__custom"></i>
                 </div>
 
-                <div class="btn btn-primary | btn__primary">
-                    Find a Doctor
+                <div class="btn btn-primary | btn__primary" [routerLink]="['home']" fragment="data">
+                    Updated data
                     <i class="bi bi-chevron-right | icon__custom"></i>
                 </div>
 
@@ -28,4 +28,5 @@
             <img class="hero__image-main" src="../../../../assets/image/hero-image2.svg" alt="covid">
         </div>
     </div>
+    <div id="data"></div>
 </header>

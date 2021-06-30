@@ -433,12 +433,17 @@
         }
 
         .card__content{
+            height: 85px;
+            overflow: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
             padding-left: 0;
             padding-right: 0;
             color: $content-primary;
             font-size: $fz16;
             line-height: 1.5rem;
             font-weight: 400;
+
         }
 
     }
