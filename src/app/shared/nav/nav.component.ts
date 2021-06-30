@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
   fetchIpLocation(){
     this.ipLocationService.getIpLocation()
         .subscribe((data:any) =>{
-          console.log(data);
+          //console.log(data);
           this.location = data.country_name.toLowerCase();
           this.code = data.country_code;
         })

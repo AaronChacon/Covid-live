@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
           
           //All data
           this.dataCovid = data;
-          console.log(this.dataCovid)
+          //console.log(this.dataCovid)
 
           //Totals data
           this.totalConfirmed = this.dataCovid.Global.TotalConfirmed;
@@ -68,7 +68,7 @@ export class MainComponent implements OnInit {
           
           //Countries
           this.countries = this.dataCovid.Countries
-          console.log(this.countries)
+          //console.log(this.countries)
 
           //MapCountries
           this.mapDataCountries = this.countries.map(country => {
@@ -85,7 +85,7 @@ export class MainComponent implements OnInit {
       
           });
 
-          console.log(this.mapDataCountries);
+          //console.log(this.mapDataCountries);
 
         })
   }
@@ -93,7 +93,7 @@ export class MainComponent implements OnInit {
   fetchIpLocation(){
     this.ipLocationService.getIpLocation()
         .subscribe((data:any) =>{
-          console.log(data);
+          //console.log(data);
           this.location = data.country_name;
         })
   }  
